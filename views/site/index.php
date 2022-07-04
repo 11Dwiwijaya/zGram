@@ -6,16 +6,19 @@ use yii\helpers\BaseUrl;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+
 $this->title = 'zGram';
 ?>
 <div class="site-index">
 
     <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Selamat Datang</h1>
+        <h1 class="display-4">Welcome to zGram</h1>
 
-        <p class="lead">mau membuat artikel baru ?</p>
+        <p class="lead">wanna create some articles ?</p>
 
-        <?= Html::a('Buat Artikel', ['article/create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create one', ['article/create'], ['class' => 'btn btn-success']) ?>
     </div>
 
     <div class="body-content">
@@ -24,7 +27,7 @@ $this->title = 'zGram';
 
             <thead>
                 <tr>
-                    <th>semua article . . . </th>
+                    <th> articles . . . </th>
                     <th style="text-align: center; vertical-align: middle;"></th>
                 </tr>
             </thead>
