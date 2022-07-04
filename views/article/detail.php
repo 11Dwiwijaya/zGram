@@ -2,7 +2,10 @@
 
 use yii\helpers\html;
 
-$this->title = 'Detail';
+$this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
 ?>
 <div class="card mx-auto">
     <div class="card-header">Article</div>

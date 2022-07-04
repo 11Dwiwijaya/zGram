@@ -6,9 +6,6 @@ use yii\helpers\BaseUrl;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
-
 $this->title = 'zGram';
 ?>
 <div class="site-index">
@@ -27,7 +24,7 @@ $this->title = 'zGram';
 
             <thead>
                 <tr>
-                    <th> articles . . . </th>
+                    <th>articles . . . </th>
                     <th style="text-align: center; vertical-align: middle;"></th>
                 </tr>
             </thead>
