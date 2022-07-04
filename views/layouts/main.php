@@ -40,7 +40,19 @@ AppAsset::register($this);
             ],
         ]);
 
-        //$item = ['label' => 'Article', 'url' => ['/article']];
+        // print(Yii::$app->user->identity->id_role);
+
+        // if (Yii::$app->user->identity->id_role == 1) :
+        //     ['label' => 'Home', 'url' => ['/site/index']];
+        //     ['label' => 'User', 'url' => ['/user/index']];
+        //     ['label' => 'Article', 'url' => ['/article']];
+
+        // elseif (Yii::$app->user->identity->id_role == 2) :
+        //     ['label' => 'Home', 'url' => ['/site/index']];
+        //     ['label' => 'Article', 'url' => ['/article']];
+        //     ['label' => 'Contact', 'url' => ['/site/contact']];
+
+        // endif;
 
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav '],
@@ -53,6 +65,7 @@ AppAsset::register($this);
                 ['label' => 'Article', 'url' => ['/article']],
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Contact', 'url' => ['/site/contact']],
+
                 ['label' => 'Coba Form', 'url' => ['/site/coba']],
 
                 Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]
@@ -68,16 +81,7 @@ AppAsset::register($this);
                 )
             ],
         ]);
-        // if (Yii::$app->user->identity->id_role == 1) :
-        //     ['label' => 'Home', 'url' => ['/site/index']];
-        //     ['label' => 'User', 'url' => ['/user/index']];
-        //     ['label' => 'Article', 'url' => ['/article']];
 
-        // elseif (Yii::$app->user->identity->id_role == 2) :
-        //     ['label' => 'Home', 'url' => ['/site/index']];
-        //     ['label' => 'Article', 'url' => ['/article']];
-
-        // endif;
 
         NavBar::end();
         ?>
