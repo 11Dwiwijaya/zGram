@@ -32,7 +32,7 @@ class Article extends \yii\db\ActiveRecord
             [['title', 'content', 'author', 'date'], 'required'],
             [['content'], 'string'],
             [['date'], 'safe'],
-            [['title', 'author'], 'string', 'max' => 30],
+            [['author'], 'string', 'max' => 30],
         ];
     }
 

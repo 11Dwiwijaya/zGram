@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use Yii;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -24,11 +25,11 @@ class UserController extends Controller
             [
                 'access' => [
                     'class' => AccessControl::className(),
-                    'only' => ['create', 'update', 'delete', 'view'],
+                    'only' => ['create', 'update', 'delete', 'view', 'index'],
                     'rules' => [
                         [
                             'allow' => true,
-                            'roles' => ['@'],
+                            'roles' => [1],
                         ],
                     ],
                 ],
