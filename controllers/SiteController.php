@@ -153,10 +153,12 @@ class SiteController extends Controller
         $user = new User();
         if ($this->request->isPost) {
             if ($user->load($this->request->post()) && $user->save()) {
+                Yii::$app->session->setFlash('success', "Account created successfully.");
                 return $this->redirect(['login']);
             }
         } else {
             $user->loadDefaultValues();
+            Yii::$app->session->setFlash('success', "Account not saved.");
         }
 
         return $this->render('signup', [

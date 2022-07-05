@@ -86,6 +86,7 @@ class UserController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
+                Yii::$app->session->setFlash('success', "User created successfully.");
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -109,6 +110,7 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "User update successfully.");
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -127,7 +129,7 @@ class UserController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        Yii::$app->session->setFlash('success', "User deleted successfully.");
         return $this->redirect(['index']);
     }
 

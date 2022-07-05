@@ -8,7 +8,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-
+use Yii;
 
 /**
  * ArticleController implements the CRUD actions for article model.
@@ -90,6 +90,7 @@ class ArticleController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
+                Yii::$app->session->setFlash('success', "Article created successfully.");
                 return $this->redirect(['view', 'id_article' => $model->id_article]);
             }
         } else {
@@ -113,6 +114,7 @@ class ArticleController extends Controller
         $model = $this->findModel($id_article);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Article edited successfully.");
             return $this->redirect(['view', 'id_article' => $model->id_article]);
         }
 
@@ -131,7 +133,7 @@ class ArticleController extends Controller
     public function actionDelete($id_article)
     {
         $this->findModel($id_article)->delete();
-
+        Yii::$app->session->setFlash('success', "Article has been deleted.");
         return $this->redirect(['index']);
     }
 
