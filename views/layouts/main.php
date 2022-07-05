@@ -46,7 +46,7 @@ AppAsset::register($this);
                 ['label' => 'Home', 'url' => ['/site/index']],
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Contact', 'url' => ['/site/contact']],
-                ['label' => 'Coba Form', 'url' => ['/site/coba']],
+                // ['label' => 'Coba Form', 'url' => ['/site/coba']],
                 ['label' => 'Login', 'url' => ['/site/login']]
             ];
         elseif (Yii::$app->user->identity->roles == 1) :
@@ -75,7 +75,7 @@ AppAsset::register($this);
                 ['label' => 'Contact', 'url' => ['/site/contact']],
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Contact', 'url' => ['/site/contact']],
-                ['label' => 'Coba Form', 'url' => ['/site/coba']],
+                // ['label' => 'Coba Form', 'url' => ['/site/coba']],
                 ('<li>'
                     . Html::beginForm(['site/logout'], 'post', ['class' => 'form-inline'])
                     . Html::submitButton(

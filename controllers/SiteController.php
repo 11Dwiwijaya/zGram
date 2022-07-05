@@ -158,7 +158,6 @@ class SiteController extends Controller
             }
         } else {
             $user->loadDefaultValues();
-            Yii::$app->session->setFlash('success', "Account not saved.");
         }
 
         return $this->render('signup', [
