@@ -151,7 +151,6 @@ class SiteController extends Controller
     public function actionSignup()
     {
         $user = new User();
-        $model = new SignupForm();
         if ($this->request->isPost) {
             if ($user->load($this->request->post()) && $user->save()) {
                 return $this->redirect(['login']);
@@ -161,7 +160,7 @@ class SiteController extends Controller
         }
 
         return $this->render('signup', [
-            'model' => $model,
+            'model' => $user,
         ]);
     }
 }

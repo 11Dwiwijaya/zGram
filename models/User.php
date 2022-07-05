@@ -6,6 +6,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     const STATUS_ACTIVE = 10;
     const STATUS_DELETE = 0;
+    const AUTHOR = 2;
     public static function tableName()
     {
         return 'user';
@@ -19,6 +20,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['time_updated', 'time_created', 'roles', 'username', 'name', 'password', ''], 'safe'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['roles', 'default', 'value' => self::AUTHOR],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETE]],
         ];
     }
