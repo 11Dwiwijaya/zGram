@@ -25,7 +25,7 @@ class ArticleController extends Controller
             [
                 'access' => [
                     'class' => AccessControl::className(),
-                    'only' => ['create', 'update', 'delete', 'view'],
+                    'only' => ['create', 'update', 'delete', 'view', 'index'],
                     'rules' => [
                         [
                             'allow' => true,

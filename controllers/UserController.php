@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\commands\AccessRule;
 use app\models\User;
 use app\models\UserSearch;
 use yii\web\Controller;
@@ -25,10 +26,12 @@ class UserController extends Controller
             [
                 'access' => [
                     'class' => AccessControl::className(),
-                    'only' => ['create', 'update', 'delete', 'view', 'index'],
+                    // 'only' => ['create', 'update', 'delete', 'view', 'index'],
+                    'ruleConfig' => ['class' => AccessRule::className()],
                     'rules' => [
                         [
                             'allow' => true,
+                            'actions' => ['index', 'create'],
                             'roles' => [1],
                         ],
                     ],

@@ -10,6 +10,9 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\CobaForm;
+use app\models\SignupForm;
+use app\models\User;
+
 
 class SiteController extends Controller
 {
@@ -144,5 +147,21 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    public function actionSignup()
+    {
+        $user = new User();
+        $model = new SignupForm();
+        if ($this->request->isPost) {
+            if ($user->load($this->request->post()) && $user->save()) {
+                return $this->redirect(['login']);
+            }
+        } else {
+            $user->loadDefaultValues();
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
     }
 }

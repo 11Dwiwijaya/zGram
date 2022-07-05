@@ -40,36 +40,21 @@ AppAsset::register($this);
             ],
         ]);
 
-        // print(Yii::$app->user->identity->id_role);
-
-        // if (Yii::$app->user->identity->id_role == 1) :
-        //     ['label' => 'Home', 'url' => ['/site/index']];
-        //     ['label' => 'User', 'url' => ['/user/index']];
-        //     ['label' => 'Article', 'url' => ['/article']];
-
-        // elseif (Yii::$app->user->identity->id_role == 2) :
-        //     ['label' => 'Home', 'url' => ['/site/index']];
-        //     ['label' => 'Article', 'url' => ['/article']];
-        //     ['label' => 'Contact', 'url' => ['/site/contact']];
-
-        // endif;
-
-        echo Nav::widget([
-            'options' => ['class' => 'navbar-nav '],
-            'items' => [
-
-                ['label' => '|',],
-
+        // print(Yii::$app->user->identity->roles);
+        if (Yii::$app->user->identity == null) :
+            $items = [
+                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'About', 'url' => ['/site/about']],
+                ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => 'Coba Form', 'url' => ['/site/coba']],
+                ['label' => 'Login', 'url' => ['/site/login']]
+            ];
+        elseif (Yii::$app->user->identity->roles == 1) :
+            $items = [
                 ['label' => 'Home', 'url' => ['/site/index']],
                 ['label' => 'User', 'url' => ['/user/index']],
                 ['label' => 'Article', 'url' => ['/article']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
-
-                ['label' => 'Coba Form', 'url' => ['/site/coba']],
-
-                Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]
-                ) : ('<li>'
+                ('<li>'
                     . Html::beginForm(['site/logout'], 'post', ['class' => 'form-inline'])
                     . Html::submitButton(
                         'Logout (' . Yii::$app->user->identity->username . ')',
@@ -79,7 +64,62 @@ AppAsset::register($this);
                     . Html::endForm()
                     . '</li>'
                 )
-            ],
+
+            ];
+
+
+        elseif (Yii::$app->user->identity->roles == 2) :
+            $items = [
+                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'Article', 'url' => ['/article']],
+                ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => 'About', 'url' => ['/site/about']],
+                ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => 'Coba Form', 'url' => ['/site/coba']],
+                ('<li>'
+                    . Html::beginForm(['site/logout'], 'post', ['class' => 'form-inline'])
+                    . Html::submitButton(
+                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-danger btn-sm logout'],
+                        ['style' => 'text-align :right'],
+                    )
+                    . Html::endForm()
+                    . '</li>'
+                )
+            ];
+
+        endif;
+
+        // if(Yii::$app->user->isGuest ?) :
+        //     $login = ['label' => 'Login', 'url' => ['/site/login']];
+        // elseif()
+
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav '],
+            'items' =>
+            $items,
+            // ['label' => '|',],
+
+            // ['label' => 'Home', 'url' => ['/site/index']],
+            // ['label' => 'User', 'url' => ['/user/index']],
+            // ['label' => 'Article', 'url' => ['/article']],
+            // ['label' => 'About', 'url' => ['/site/about']],
+            // ['label' => 'Contact', 'url' => ['/site/contact']],
+            // ['label' => 'Coba Form', 'url' => ['/site/coba']],
+
+            // Yii::$app->user->isGuest ?
+            //     (['label' => 'Login', 'url' => ['/site/login']]) : ('<li>'
+            //         . Html::beginForm(['site/logout'], 'post', ['class' => 'form-inline'])
+            //         . Html::submitButton(
+            //             'Logout (' . Yii::$app->user->identity->username . ')',
+            //             ['class' => 'btn btn-danger btn-sm logout'],
+            //             ['style' => 'text-align :right'],
+            //         )
+            //         . Html::endForm()
+            //         . '</li>'
+            //     )
+
+            // ]
         ]);
 
 

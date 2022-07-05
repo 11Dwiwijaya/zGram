@@ -17,7 +17,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['time_updated', 'time_created', 'role', 'username', 'name', 'password', ''], 'safe'],
+            [['time_updated', 'time_created', 'roles', 'username', 'name', 'password', ''], 'safe'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETE]],
         ];
