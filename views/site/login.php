@@ -29,6 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
+    dont have account ? <a href="<?= Url::to(['/site/signup',]); ?>">Sign-up </a>
+    <hr>
     <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'options' => ['autocomplete' => 'off']]) ?>
 
     <?= $form->field($model, 'password')->passwordInput() ?>
@@ -44,7 +46,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
         <br>
-        dont have account ? <a href="<?= Url::to(['/site/signup',]); ?>">Signup </a>
 
     </div>
 

@@ -17,9 +17,8 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'password')->textInput() ?>
 
     <?= $form->field($model, 'status')->dropDownList(['10' => 'Aktif', '0' => 'Nonaktif'], ['prompt' => 'Pilih Status']) ?>
+    <?= $form->field($model, 'roles')->dropDownList(['1' => 'Admin', '2' => 'Author'], ['prompt' => 'Pilih Role']) ?>
 
-    <?php $dataPost = ArrayHelper::map(\app\models\Role::find()->asArray()->all(), 'roles', 'role');
-    echo $form->field($model, 'roles')->dropDownList($dataPost, ['prompt' => 'Pilih Role . . '], ['roles' => 'role']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
