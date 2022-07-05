@@ -35,7 +35,7 @@ already have account ? <a href="<?= Url::to(['/site/login',]); ?>">Login </a>
 <div class="form-group">
     <div class="offset-lg-1 col-lg-11">
 
-        <?= Html::submitButton('Login', ['class' => 'btn btn-warning', 'name' => 'login-button']) ?>
+        <?= Html::submitButton('Sign-up', ['class' => 'btn btn-warning', 'name' => 'login-button']) ?>
 
     </div>
     <br>
