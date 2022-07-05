@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //     }
 
             // ],
-            'role.role',
+            'roles',
 
             [
                 'class' => ActionColumn::className(),
