@@ -11,6 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-header">Article</div>
     <div class="card-body">
         <h1><?= Html::encode($model->title) ?></h1>
+
         <?= ($model->content) ?>
         <br>
         <br>

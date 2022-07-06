@@ -1,5 +1,4 @@
 <?php
-
 use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -10,9 +9,9 @@ use yii\helpers\Html;
   <!-- Logo -->
   <a href="index2.html" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>z</b>G</span>
+    <span class="logo-mini"><b>A</b>LT</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>z</b>G</span>
+    <span class="logo-lg"><b>Admin</b>LTE</span>
   </a>
 
   <!-- Header Navbar -->
@@ -46,20 +45,7 @@ use yii\helpers\Html;
                 <!-- <a href="#" class="btn btn-default btn-flat">Profile</a> -->
               </div>
               <div class="pull-right">
-                <?php if (Yii::$app->user->isGuest) : ?>
-                  <?= Html::a('Login', ['site/login']) ?>
-                <?php else :  ?>
-                  <?php echo
-                  Html::beginForm(['site/logout'], 'post', ['class' => 'form-inline'])
-                    . Html::submitButton(
-
-                      'Logout',
-                      ['class' => 'btn btn-danger btn-sm logout'],
-                      ['style' => 'text-align :right'],
-                    )
-                    . Html::endForm() ?>
-                <?php endif; ?>
-
+                <a href="#" class="btn btn-default btn-flat">Sign out</a>
               </div>
             </li>
           </ul>
