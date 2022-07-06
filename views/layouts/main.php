@@ -145,6 +145,14 @@ AppAsset::register($this);
     </footer>
 
     <?php $this->endBody() ?>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector("#editor")).catch((error) => {
+            console.error(error);
+        });
+    </script>
+    <!-- <script src="../assets/ckeditor5/ckeditor.js"></script> -->
 </body>
 
 </html>

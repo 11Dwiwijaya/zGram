@@ -21,7 +21,7 @@ $this->title = 'zGram';
     <div class="body-content">
 
         <table id="myTable" class=" table ">
-
+            <!-- <img src="../assets/final.png" alt="" srcset=""> -->
             <thead>
                 <tr>
                     <th>articles . . . </th>
@@ -36,7 +36,7 @@ $this->title = 'zGram';
                 ?>
                     <tr>
 
-                        <td><a href="<?= Url::to(['article/detail', 'id_article' => $p['id_article']]); ?>"><?= $p['title']; ?></a> <br> <?= $p['content']; ?></td>
+                        <td><a href="<?= Url::to(['article/detail', 'id_article' => $p['id_article']]); ?>"><?= $p['title']; ?></a> </td>
 
                     </tr>
                 <?php endforeach; ?>

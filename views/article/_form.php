@@ -14,20 +14,15 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'content', ['inputOptions' => ['id' => 'editor']])->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'date')->widget(DatePicker::classname(), [
-        'options' => ['placeholder' => 'Pilih Tanggal ...'],
-        'pluginOptions' => [
-            'autoclose' => true
-        ]
-    ]);  ?>
+    <?= $form->field($model, 'date')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
-
 </div>
