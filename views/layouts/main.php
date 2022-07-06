@@ -148,9 +148,13 @@ AppAsset::register($this);
 
     <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
     <script>
-        ClassicEditor.create(document.querySelector("#editor")).catch((error) => {
-            console.error(error);
-        });
+        ClassicEditor.create(document.querySelector("#editor"))
+            .then((editor) => {
+                // console.log( editor );
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     </script>
     <!-- <script src="../assets/ckeditor5/ckeditor.js"></script> -->
 </body>
