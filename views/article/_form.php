@@ -21,13 +21,15 @@ use kartik\date\DatePicker;
     <?= $form->field($model, 'content', ['inputOptions' => ['id' => 'editor']])->textarea(['rows' => 6]) ?>
 
 
-    <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'author')->textInput(['readonly' => true, 'value' => Yii::$app->user->identity->username]) ?>
 
     <?= $form->field($model, 'date')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
+    <?php //print(Yii::$app->user->identity->username) 
+    ?>
 
     <?php ActiveForm::end(); ?>
 </div>
