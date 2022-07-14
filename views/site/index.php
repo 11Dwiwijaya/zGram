@@ -16,6 +16,9 @@ $this->title = 'zGram';
         <p class="lead">wanna create some articles ?</p>
 
         <?= Html::a('Create one', ['article/create'], ['class' => 'btn btn-success']) ?>
+        <!-- <a href="" class="btn btn-warning"><span data-feather="edit-2"></span></a> -->
+
+
     </div>
 
     <div class="body-content">
@@ -31,7 +34,6 @@ $this->title = 'zGram';
             <tbody>
 
                 <?php
-                $no = 1;
                 foreach ($article as $p) :
                 ?>
                     <tr>

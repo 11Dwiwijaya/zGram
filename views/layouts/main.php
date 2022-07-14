@@ -25,6 +25,7 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -145,6 +146,7 @@ AppAsset::register($this);
     </footer>
 
     <?php $this->endBody() ?>
+    <script src="../assets/js/feather.min.js"></script>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
     <script>

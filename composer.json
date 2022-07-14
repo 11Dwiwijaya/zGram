@@ -21,7 +21,9 @@
         "yiister/yii2-gentelella": "~1.0",
         "kartik-v/yii2-widget-datepicker": "dev-master",
         "dmstr/yii2-adminlte-asset": "^1",
-        "yidas/yii2-adminlte": "^2.2"
+        "yidas/yii2-adminlte": "^2.2",
+        "yiisoft/yii2-jui": "*",
+        "kartik-v/yii2-grid": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

@@ -17,21 +17,27 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Article', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="fa-solid fa-plus"></i> Create Article', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
     ?>
-
+    zz
     <?= GridView::widget([
+        'tableOptions' => [
+            'class' => 'table table-striped',
+        ],
+        'options' => [
+            'class' => 'table-responsive',
+        ],
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             // 'id_article',
             'title',
-            'content:ntext',
+            // 'content:ntext',
             'author',
             [
                 'header' => 'Date',
@@ -45,9 +51,24 @@ $this->params['breadcrumbs'][] = $this->title;
             //'date',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action,  $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_article' => $model->id_article]);
-                }
+                'header' => 'Action',
+                'headerOptions' => ['style' => 'width :200px', 'class' => 'text-center'],
+
+                'template' => '{update}{view}{delete}',
+                'contentOptions' => ['class' => 'text-center'],
+                // 'width' => '100px',
+                'buttons' => [
+                    'update' => function ($url, $model) {
+                        return Html::a('', $url, ['class' => 'm-1 btn btn-xs btn-warning fa fa-pencil']);
+                    },
+                    'view' => function ($url, $model) {
+                        return Html::a('', $url, ['class' => 'm-1 btn btn-xs btn-primary fa fa-eye']);
+                    },
+                    'delete' => function ($url, $model) {
+                        return Html::a('', $url, ['class' => 'm-1 btn btn-xs btn-danger fa fa-trash']);
+                    }
+                ],
+
             ],
         ],
     ]); ?>

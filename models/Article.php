@@ -45,7 +45,8 @@ class Article extends \yii\db\ActiveRecord
             'id_article' => 'Id Article',
             'title' => 'Title',
             'content' => 'Content',
-            'author' => 'Author',
+            'author' => Yii::t('app', 'Author'),
+            // 'author' => 'Author',
             'date' => 'Date',
         ];
     }

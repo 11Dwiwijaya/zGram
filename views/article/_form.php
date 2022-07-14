@@ -6,6 +6,7 @@ use kartik\date\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model app\models\article */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 <style>
     .ck-editor__editable_inline {
@@ -23,7 +24,11 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'author')->textInput(['readonly' => true, 'value' => Yii::$app->user->identity->username]) ?>
 
-    <?= $form->field($model, 'date')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'date')->widget(\yii\jui\DatePicker::classname(), [
+        //'language' => 'ru',
+
+        'dateFormat' => 'yyyy-MM-dd',
+    ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

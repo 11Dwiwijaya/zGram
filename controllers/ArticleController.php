@@ -18,31 +18,6 @@ class ArticleController extends Controller
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'access' => [
-                    'class' => AccessControl::className(),
-                    'only' => ['create', 'update', 'delete', 'view', 'index'],
-                    'rules' => [
-                        [
-                            'allow' => true,
-                            'roles' => ['@'],
-                        ],
-                    ],
-                ],
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-
-                ],
-            ]
-        );
-    }
 
     /**
      * Lists all article models.
@@ -66,16 +41,16 @@ class ArticleController extends Controller
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id_article)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id_article),
+            'model' => $this->findModel($id),
         ]);
     }
-    public function actionDetail($id_article)
+    public function actionDetail($id)
     {
         return $this->render('detail', [
-            'model' => $this->findModel($id_article),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -109,13 +84,13 @@ class ArticleController extends Controller
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id_article)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($id_article);
+        $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', "Article edited successfully.");
-            return $this->redirect(['view', 'id_article' => $model->id_article]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -130,9 +105,9 @@ class ArticleController extends Controller
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id_article)
+    public function actionDelete($id)
     {
-        $this->findModel($id_article)->delete();
+        $this->findModel($id)->delete();
         Yii::$app->session->setFlash('success', "Article has been deleted.");
         return $this->redirect(['index']);
     }
@@ -144,9 +119,9 @@ class ArticleController extends Controller
      * @return article the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id_article)
+    protected function findModel($id)
     {
-        if (($model = article::findOne(['id_article' => $id_article])) !== null) {
+        if (($model = article::findOne(['id_article' => $id])) !== null) {
             return $model;
         }
 

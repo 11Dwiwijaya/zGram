@@ -24,6 +24,10 @@ use yii\helpers\Url;  ?>
     <?php if (Yii::$app->user->identity == null) : ?>
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
+        <li>
+          <a href="<?= Url::to(['site/index']) ?>">
+            <i class="fa fa-home"></i> <span>Home</span>
+        </li>
 
         <li class="">
           <?= Html::a('Home', ['site/index']) ?>
